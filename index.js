@@ -18,5 +18,7 @@ mqtt.on('connect', function () {
 mqtt.on('message', function (topic, message) {
     var payload = message.toString();
     var chatId = topic.substring(topic.lastIndexOf('/')+1);
+    console.log("Sending Message to " + chatId);
+    console.log(message);
     telegramBot.sendMessage(chatId, payload);
 });
